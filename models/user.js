@@ -6,10 +6,6 @@ var findOrCreate = require('mongoose-findorcreate')
 var schema = mongoose.Schema({
     username: String,
     password: String,
-    pin: [{
-    	title: String,
-    	url: String
-    }]
 });
 
 schema.plugin(findOrCreate);

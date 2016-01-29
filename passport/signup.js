@@ -31,7 +31,7 @@ module.exports = function(passport){
                         // set the user's local credentials
                         newUser.username = username;
                         newUser.password = createHash(password);
-                        newUser.pin = null;
+                        newUser.pin = [];
 
                         // save the user
                         newUser.save(function(err) {
@@ -40,7 +40,7 @@ module.exports = function(passport){
                                 throw err;  
                             }
                             console.log('User Registration succesful');   
-                            req.flash('User Registration succesful'); 
+                            req.flash('success', 'User Registration succesful'); 
                             return done(null, newUser);
                         });
                     }

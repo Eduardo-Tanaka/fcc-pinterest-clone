@@ -1,5 +1,24 @@
 extends layout
 
 block content
-	div.text-center
-		h1 Add new pin
+	if message != ""
+		div.alert.alert-danger
+			button.close(type="button", data-dismiss="alert", aria-label="Close") <span aria-hidden="true">&times;</span>
+			p #{message}
+	div.row
+		div.content
+			h1.text-center.form-group Add new pin
+			form.form-horizontal(action='/add', method='post')
+				div.form-group
+					label.col-md-2.control-label(for='title') Title
+					dic.col-md-10
+						input.form-control(type='text', placeholder="Title", id='title', name='title')
+				div.form-group
+					label.col-md-2.control-label(for='url') Pin URL
+					dic.col-md-10
+						input.form-control(type='text', placeholder="Pin URL", id='url', name='url')
+				div.form-group
+					label.col-md-2
+					div.col-md-10
+						button.btn.btn-option.col-md-3 Submit
+

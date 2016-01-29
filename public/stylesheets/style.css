@@ -1,5 +1,6 @@
 body {
   	font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  	background-color: #EEE;
 }
 
 a {
@@ -14,11 +15,11 @@ a {
 	color: white;
 }
 
-.navbar-default .navbar-nav > li > a {
+.navbar-default .navbar-brand:hover {
 	color: white;
 }
 
-.navbar-default .navbar-nav > li > a:hover {
+.navbar-default .navbar-nav > li > a {
 	color: white;
 }
 
@@ -53,4 +54,9 @@ a {
 	background-color: #009688;
 	color: white;
 	border-color: #009688
+}
+
+.content {
+	max-width: 60%;
+	margin: 0px auto;
 }

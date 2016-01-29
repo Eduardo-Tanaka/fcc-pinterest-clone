@@ -1,3 +1,19 @@
 extends layout
 
 block content
+	if message != ""
+		div.alert.alert-danger
+			button.close(type="button", data-dismiss="alert", aria-label="Close") <span aria-hidden="true">&times;</span>
+			p #{message}
+	if success != ""
+		div.alert.alert-success
+			button.close(type="button", data-dismiss="alert", aria-label="Close") <span aria-hidden="true">&times;</span>
+			p #{success}
+	h1.text-center My Pins
+	div
+		each val in pins
+			div.pin
+				img(src='#{val.url}')
+				div.text-center
+					p #{val.title}
+					a(href='/delete/#{val._id}') delete
