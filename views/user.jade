@@ -1,0 +1,11 @@
+extends layout
+
+block content
+	h1.text-center Pins for user #{username}:
+	div.container-fluid
+		div.grid
+			each val in pins
+				div.pin.grid-item
+					img.img-thumbnail(src='#{val.url}')
+					div.text-center.caption
+						p #{val.title}

@@ -43,9 +43,10 @@ html
 							li.dropdown
 								a.dropdown-toggle(href="#", data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false") Sign In / Join <span class="caret"></span>
 								div.dropdown-menu
-									form(action='login', method='post', id='form')
+									form(action='logingithub', method='post', id='github')
 										div.col-md-12.form-group
 											button.btn.form-control Sign In with GitHub
+									form(action='login', method='post', id='form')
 										div.col-md-12.form-group.inputs
 											if message != ""
 												div.alert.alert-danger
@@ -61,4 +62,5 @@ html
 			block content
 		script(src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.0/jquery.min.js')
 		script(src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js')
+		script(src="https://npmcdn.com/masonry-layout@4.0/dist/masonry.pkgd.min.js")
 		script(src='/javascripts/index.js')    

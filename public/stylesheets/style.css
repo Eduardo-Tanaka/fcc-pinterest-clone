@@ -64,3 +64,15 @@ a {
 .changePassword {
 	display: none;
 }
+
+.pin {
+	display: inline-block;
+	padding: 10px;
+}
+
+.caption {
+	background-color: white;
+	padding-bottom: 15px;
+}
+
+.grid-item { width: 20% }

@@ -5,9 +5,7 @@ var usercontroller = require('../controllers/usercontroller');
 
 module.exports = function(passport) {
 	/* GET home page. */
-	router.get('/', function(req, res, next) {
-	 	res.render('index', { user: req.user, message: req.flash('message'), success: req.flash('success') });
-	});
+	router.get('/', pincontroller.allPins);
 
 	router.post('/signup', passport.authenticate('signup', {
 		successRedirect: '/',
@@ -20,6 +18,18 @@ module.exports = function(passport) {
 		failureRedirect: '/',
 		failureFlash : true  
 	}));
+
+	router.post('/logingithub', passport.authenticate('github', {
+		successRedirect: '/',
+		failureRedirect: '/',
+		failureFlash : true  
+	}));
+
+	router.get('/auth/github/callback', passport.authenticate('github', { failureRedirect: '/' }),
+  		function(req, res) {
+    	// Successful authentication, redirect home.
+    	res.redirect('/');
+	});
 
 	router.get('/logout', function(req, res, next) {
 	    req.logout();

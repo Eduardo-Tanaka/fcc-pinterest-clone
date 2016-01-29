@@ -32,4 +32,34 @@ $(document).ready(function(){
 		$("#logout").css('display', 'block');
 		$(".changePassword").css('display', 'none');
 	});
+
+	$('.grid').masonry({
+	  // options
+	  itemSelector: '.grid-item',
+	  percentPosition: true
+	});
+
+	function checkImg(img) {
+        if (img.naturalHeight <= 1 && img.naturalWidth <= 1) {
+            // undersize image here
+            img.src = "http://www.davidsonmalacco.com.br/wp-content/themes/openmind/img/no_image.png";
+        }
+    }
+
+    $("img").each(function() {
+        // if image already loaded, we can check it's height now
+        if (this.complete) {
+            checkImg(this);
+        } else {
+            // if not loaded yet, then set load and error handlers
+            $(this).load(function() {
+                checkImg(this);
+            }).error(function() {
+                // img did not load correctly
+                // set new .src here
+                this.src = "http://www.davidsonmalacco.com.br/wp-content/themes/openmind/img/no_image.png";
+            });
+
+        }
+    });
 });

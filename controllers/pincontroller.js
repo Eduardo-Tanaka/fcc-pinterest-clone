@@ -23,7 +23,11 @@ module.exports.myPins = function(req, res, next) {
 }
 
 module.exports.allPins = function(req, res, next) {
-
+	Pin.find({}, function(err, pins) {
+		if (err)
+			req.flash('message', err);
+		res.render('index', { user: req.user, message: req.flash('message'), success: req.flash('success'), pins: pins });
+	})
 }
 
 module.exports.deletePin = function(req, res, next) {
@@ -33,4 +37,13 @@ module.exports.deletePin = function(req, res, next) {
 		req.flash('success', 'Pin deleted');
 		res.redirect('/mypins');
 	});	
+}
+
+
+module.exports.userPins = function(req, res, next) {
+	Pin.find({ 'username': req.params.username }, function(err, pins) {
+		if (err)
+			req.flash('message', err);
+		res.render('user', { user: req.user, message: req.flash('message'), success: req.flash('success'), pins: pins, username: req.params.username });
+	});
 }
