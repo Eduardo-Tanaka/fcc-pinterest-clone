@@ -5,7 +5,7 @@ var findOrCreate = require('mongoose-findorcreate')
 
 var schema = mongoose.Schema({
     username: String,
-    password: String,
+    password: String
 });
 
 schema.plugin(findOrCreate);

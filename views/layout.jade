@@ -30,8 +30,15 @@ html
 								a.dropdown-toggle(href="#", data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false") #{user.username} <span class="caret"></span>
 								div.dropdown-menu
 									div.col-md-12.form-group
-										a.btn.form-control(href='/password') Change Password
-										a.btn.btn-option.form-control.logout(href='/logout') Logout
+										form(action='/password', method='post')
+											div.changePassword
+												input.form-control(type='password', placeholder='Current Password', name='current', id='current')
+												input.form-control(type='password', placeholder='New Password', name='newPassword', id='newPassword')
+												input.form-control(type='password', placeholder='New Password (again)', id='newPasswordAgain', name='newPasswordAgain')
+												button.btn.btn-option.form-control(id='submitPassword') Change Password
+												a.btn.form-control(id='cancelPassword') Cancel
+										a.btn.form-control(id='changePassword') Change Password
+										a.btn.btn-option.form-control.logout(href='/logout', id='logout') Logout
 						else
 							li.dropdown
 								a.dropdown-toggle(href="#", data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false") Sign In / Join <span class="caret"></span>

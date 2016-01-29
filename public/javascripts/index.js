@@ -18,4 +18,18 @@ $(document).ready(function(){
 		$("#passwordAgain").css('display', 'none');
 		$('#form').attr('action', '/login');
 	});
+
+	$("#changePassword").on("click", function(e) {
+		e.stopPropagation();
+		$(".changePassword").css('display', 'block');
+		$(this).css('display', 'none');
+		$("#logout").css('display', 'none');
+	});
+
+	$("#cancelPassword").on("click", function(e) {
+		e.stopPropagation();
+		$("#changePassword").css('display', 'block');
+		$("#logout").css('display', 'block');
+		$(".changePassword").css('display', 'none');
+	});
 });

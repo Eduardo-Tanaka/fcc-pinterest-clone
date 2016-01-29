@@ -1,6 +1,7 @@
 var express = require('express');
 var router = express.Router();
 var pincontroller = require('../controllers/pincontroller');
+var usercontroller = require('../controllers/usercontroller');
 
 module.exports = function(passport) {
 	/* GET home page. */
@@ -35,13 +36,7 @@ module.exports = function(passport) {
 
 	router.get('/delete/:id', isAuthenticated, pincontroller.deletePin);
 
-	router.get('/password', function(req, res, next) {
-	 	res.render('password', { user: req.user, message: req.flash('message'), success: req.flash('success') });
-	});
-
-	router.post('/password', function(req, res, next) {
-	 	res.render('index', { user: req.user, message: req.flash('message'), success: req.flash('success') });
-	});
+	router.post('/password', isAuthenticated, usercontroller.changePassword);
 
 	return router;
 }
