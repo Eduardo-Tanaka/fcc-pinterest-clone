@@ -1,7 +1,57 @@
 doctype html
 html
-  head
-    title= title
-    link(rel='stylesheet', href='/stylesheets/style.css')
-  body
-    block content
+	head
+		title Pinterest Clone
+		link(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css')
+		link(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css')
+		link(rel='stylesheet', href='/stylesheets/style.css')
+	body
+		div.container
+			nav.navbar.navbar-default
+				div.navbar-header
+					button.navbar-toggle(data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false")
+						span.sr-only Toggle navigation
+						span.icon-bar
+						span.icon-bar
+						span.icon-bar
+					a.navbar-brand(href="/") Pinterest Clone
+
+				div.collapse.navbar-collapse(id="bs-example-navbar-collapse-1")
+					ul.nav.navbar-nav
+						li
+							a(href="/") Recent
+					ul.nav.navbar-nav.navbar-right
+						if user
+							li 
+								a(href='/mypins') My pins
+							li 
+								a(href='/add') Add
+							li.dropdown
+								a.dropdown-toggle(href="#", data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false") #{user.username} <span class="caret"></span>
+								div.dropdown-menu
+									div.col-md-12.form-group
+										a.btn.form-control(href='password') Change Password
+										a.btn.btn-option.form-control.logout(href='/logout') Logout
+						else
+							li.dropdown
+								a.dropdown-toggle(href="#", data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false") Sign In / Join <span class="caret"></span>
+								div.dropdown-menu
+									form(action='login', method='post', id='form')
+										div.col-md-12.form-group
+											button.btn.form-control Sign In with GitHub
+										div.col-md-12.form-group.inputs
+											if message != ""
+												div.alert.alert-danger
+													button.close(type="button", data-dismiss="alert", aria-label="Close") <span aria-hidden="true">&times;</span>
+													p #{message}
+											input.form-control(type='text', placeholder='username', name='username')
+											input.form-control(type='password', placeholder='password', name='password')
+											input.form-control(type='password', placeholder='password (again)', id='passwordAgain', name='passwordAgain')
+										div.col-md-12.form-group.buttons
+											button.btn.btn-option.form-control(id='login') Sign In
+											input.form-control.cancel(type='button', id='cancel', value='Cancel')
+											a.pull-right(id='create-account', href='#') Create account
+			block content
+		script(src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.0/jquery.min.js')
+		script(src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js')
+		script(src='/javascripts/index.js')    

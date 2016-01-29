@@ -1,5 +1,11 @@
 extends layout
 
 block content
-  h1= title
-  p Welcome to #{title}
+	if message != ""
+		div.alert.alert-danger
+			button.close(type="button", data-dismiss="alert", aria-label="Close") <span aria-hidden="true">&times;</span>
+			p #{message}
+	if success != ""
+		div.alert.alert-success
+			button.close(type="button", data-dismiss="alert", aria-label="Close") <span aria-hidden="true">&times;</span>
+			p #{success}

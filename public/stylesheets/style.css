@@ -1,8 +1,56 @@
 body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  	font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
 a {
-  color: #00B7FF;
+	color: #009688;
+}
+
+.navbar-default {
+	background-color: #009688;
+}
+
+.navbar-default .navbar-brand {
+	color: white;
+}
+
+.navbar-default .navbar-nav > li > a {
+	color: white;
+}
+
+.navbar-default .navbar-nav > li > a:hover {
+	color: white;
+}
+
+.navbar-default .navbar-nav > li > a:hover {
+	color: white;
+}
+
+.dropdown-menu {
+	min-width: 300px;
+}
+
+.cancel {
+	margin-top: 15px;
+	display: none;
+}
+
+.logout {
+	margin-top: 15px;
+}
+
+#passwordAgain {
+	display: none;
+}
+
+.btn-option {
+	background-color: #009688;
+	color: white;
+	border-color: #009688
+}
+
+.btn-option:hover {
+	background-color: #009688;
+	color: white;
+	border-color: #009688
 }
